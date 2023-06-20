@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void Rearrange(int arr[], int n)
+{
+    // Traverse the array
+    for(int i = 0; i < n ; i++){
+        // search for the negative number
+        if(arr[i] < 0) {
+            int j = i;
+            // continue swapping with adjacent element till it reaches the first positive index
+            while(j > 0 && arr[j - 1] > 0) {
+                swap(arr[j] , arr[j - 1]);
+                j--;
+            }
+        }
+    }
+}
+
+int main() {
+
+    // given array
+    int arr[] = {1 , -2 , 4 , -6, -3, 9};
+
+    // calculate size of the array
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // call the function
+    Rearrange(arr , n);
+   
+    // print the result
+    cout << "Resulting array is: ";
+    for(int i = 0 ; i < n; i++) {
+        cout << arr[i] <<" ";
+    }
+}
